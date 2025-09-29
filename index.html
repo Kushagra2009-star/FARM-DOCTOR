@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farm Doctor</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="header">
+        <h1>FARM DOCTOR</h1>
+        <div class="credit">Created by KUSHAGRA GANGWAR</div>
+        <p>Real-time NDVI Analysis using Sentinel-2 Imagery (2022-2025)</p>
+    </div>
+
+    <div class="farm-info">
+        <h2 style="text-align: center; color: white; margin-bottom: 20px;">MY FARM LOCATION</h2>
+        <div class="coordinates">
+            <div class="coord-box">
+                <h3>Latitude</h3>
+                <p>27°30'21.2"N</p>
+                <p>(27.5059°)</p>
+            </div>
+            <div class="coord-box">
+                <h3>Longitude</h3>
+                <p>79°24'00.32"E</p>
+                <p>(79.4001°)</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+        <p>Loading satellite data and computing NDVI...</p>
+    </div>
+
+    <div class="dashboard" id="dashboard">
+        <div class="card ndvi-card">
+            <h2>📊 Mean NDVI Value (2022-2025)</h2>
+            <div class="ndvi-value">
+                <div class="ndvi-number" id="ndvi-value">0.74</div>
+                <div class="ndvi-status" id="ndvi-status">Excellent Crop Health</div>
+                <div class="ndvi-description">
+                    NDVI ranges from -1 to 1. Values above 0.7 indicate very healthy vegetation.
+                </div>
+            </div>
+            <div class="status-indicators">
+                <div class="indicator">
+                    <div class="indicator-value">96%</div>
+                    <div class="indicator-label">Cloud-free Images</div>
+                </div>
+                <div class="indicator">
+                    <div class="indicator-value">247</div>
+                    <div class="indicator-label">Total Observations</div>
+                </div>
+                <div class="indicator">
+                    <div class="indicator-value">2.3ha</div>
+                    <div class="indicator-label">Farm Area</div>
+                </div>
+                <div class="indicator crop-health-indicator">
+                    <div class="crop-health-value" id="crop-health">EXCELLENT</div>
+                    <div class="indicator-label">Estimated Crop Health</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card map-card">
+            <h2>🗺️ Interactive Satellite Map</h2>
+            <div id="map"></div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
