@@ -1,12 +1,7 @@
-// Initialize the map
 const map = L.map('map').setView([27.5059, 79.4001], 16);
-
-// Add satellite tile layer
 L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
     attribution: 'Tiles © Esri — Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
 }).addTo(map);
-
-// Add farm marker
 const farmMarker = L.circle([27.5059, 79.4001], {
     color: 'red',
     fillColor: '#ff0000',
@@ -15,12 +10,8 @@ const farmMarker = L.circle([27.5059, 79.4001], {
 }).addTo(map);
 
 farmMarker.bindPopup('<b>Your Farm</b><br>Lat: 27.5059°<br>Lng: 79.4001°<br>NDVI: 0.74');
-
-// Show loading screen
 document.getElementById('loading').style.display = 'block';
 document.getElementById('dashboard').style.display = 'none';
-
-// Simulate loading and show dashboard after 3 seconds
 setTimeout(() => {
     document.getElementById('loading').style.display = 'none';
     document.getElementById('dashboard').style.display = 'grid';
@@ -29,7 +20,6 @@ setTimeout(() => {
     updateCropHealth(0.74);
 }, 3000);
 
-// Function to animate NDVI value
 function animateValue(id, start, end, duration) {
     const element = document.getElementById(id);
     const range = end - start;
@@ -49,7 +39,7 @@ function animateValue(id, start, end, duration) {
     requestAnimationFrame(update);
 }
 
-// Function to update crop health based on NDVI value
+
 function updateCropHealth(ndvi) {
     const healthElement = document.getElementById('crop-health');
     const statusElement = document.getElementById('ndvi-status');
@@ -82,7 +72,7 @@ function updateCropHealth(ndvi) {
     statusElement.textContent = status;
 }
 
-// Add NDVI layer after 4 seconds
+
 setTimeout(() => {
     const ndviLayer = L.rectangle([
         [27.5049, 79.3991],
